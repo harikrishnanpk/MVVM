@@ -57,13 +57,21 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="xQW-Zw-goP" firstAttribute="top" secondItem="Ds1-Lj-TNq" secondAttribute="top" id="ONc-iw-R1G"/>
-                                                <constraint firstAttribute="bottom" secondItem="xQW-Zw-goP" secondAttribute="bottom" constant="24" id="SzP-6z-bnS"/>
+                                                <constraint firstAttribute="bottom" secondItem="xQW-Zw-goP" secondAttribute="bottom" priority="999" constant="24" id="SzP-6z-bnS"/>
                                                 <constraint firstAttribute="trailing" secondItem="xQW-Zw-goP" secondAttribute="trailing" constant="24" id="pLf-fI-41e"/>
                                                 <constraint firstItem="xQW-Zw-goP" firstAttribute="leading" secondItem="Ds1-Lj-TNq" secondAttribute="leading" constant="24" id="q8s-hk-V4d"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="movieImage" destination="z76-rP-rcf" id="paO-sG-asj"/>
+                                            <outlet property="movieName" destination="KeK-Zl-qsO" id="BGy-VW-iwE"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="Gbm-wo-TAQ"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="M75-b6-mf3"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -75,6 +83,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="tableview" destination="XBL-SO-U51" id="WnY-xw-00I"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

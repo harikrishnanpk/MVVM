@@ -10,24 +10,45 @@ import UIKit
 
 class MainVC: UIViewController {
 
-    let provider = ServiceProvider<MovieService>()
+    @IBOutlet weak var tableview: UITableView!
+    
+    private let provider = ServiceProvider<MovieService>()
+    private lazy var mainViewModel:MainViewModel = {
+        return MainViewModel(service: provider)
+    }()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        provider.load(service: .popular(page: 1), decodeType: MoviesList.self) { result in
-            switch result {
-            case .success(let list):
-                print(list.page)
-                
-            case .failure(let error):
-                print(error.localizedDescription)
-                
-            case .empty:
-                print("No data")
-            }
+       initViewModel()
+    }
+    
+    func initViewModel(){
+        mainViewModel.loadMovies()
+        
+        mainViewModel.movies.bind { [weak self] movie in
+            self?.tableview.reloadData()
         }
     }
 }
 
+
+extension MainVC: UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return mainViewModel.numberOfMovies()
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "moviesCell") as? MoviewCell else {
+            return UITableViewCell(style: .default, reuseIdentifier: "moviesCell")
+        }
+        
+        let movie = mainViewModel.getCellItem(indexPath: indexPath)
+        
+        cell.movieName.text = movie.title
+        
+        return cell
+    }
+}

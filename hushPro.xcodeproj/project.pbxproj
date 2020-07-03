@@ -27,6 +27,8 @@
 		77557F7A24AC6B8B006D091A /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77557F7924AC6B8B006D091A /* ServiceProvider.swift */; };
 		77557F7C24AC6D0F006D091A /* MoviesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77557F7B24AC6D0F006D091A /* MoviesService.swift */; };
 		77557F7E24ADC1AE006D091A /* MoviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77557F7D24ADC1AE006D091A /* MoviewCell.swift */; };
+		77D7F49124AEE0CE006D8EEA /* ObjectBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D7F49024AEE0CE006D8EEA /* ObjectBinder.swift */; };
+		77D7F49324AEE117006D8EEA /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D7F49224AEE117006D8EEA /* MainViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,8 @@
 		77557F7924AC6B8B006D091A /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
 		77557F7B24AC6D0F006D091A /* MoviesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesService.swift; sourceTree = "<group>"; };
 		77557F7D24ADC1AE006D091A /* MoviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviewCell.swift; sourceTree = "<group>"; };
+		77D7F49024AEE0CE006D8EEA /* ObjectBinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectBinder.swift; sourceTree = "<group>"; };
+		77D7F49224AEE117006D8EEA /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +102,7 @@
 				77557F5124A1C19F006D091A /* LaunchScreen.storyboard */,
 				77557F5424A1C19F006D091A /* Info.plist */,
 				77557F6924A5BA55006D091A /* AppStoryBoard.swift */,
+				77D7F49024AEE0CE006D8EEA /* ObjectBinder.swift */,
 			);
 			path = hushPro;
 			sourceTree = "<group>";
@@ -125,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				77557F6224A47B5B006D091A /* LoginViewModel.swift */,
+				77D7F49224AEE117006D8EEA /* MainViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -246,6 +252,8 @@
 				77557F5E24A463F2006D091A /* LoginVC.swift in Sources */,
 				77557F7724AC6AA0006D091A /* Service.swift in Sources */,
 				77557F6A24A5BA55006D091A /* AppStoryBoard.swift in Sources */,
+				77D7F49324AEE117006D8EEA /* MainViewModel.swift in Sources */,
+				77D7F49124AEE0CE006D8EEA /* ObjectBinder.swift in Sources */,
 				77557F6024A47B01006D091A /* User.swift in Sources */,
 				77557F6C24A5BBAF006D091A /* UIViewController.swift in Sources */,
 				77557F7324AC302C006D091A /* MoviesList.swift in Sources */,
