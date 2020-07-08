@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import SDWebImage
+
 
 class MainVC: UIViewController {
 
     @IBOutlet weak var tableview: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     private let provider = ServiceProvider<MovieService>()
     private lazy var mainViewModel:MainViewModel = {
@@ -31,6 +34,16 @@ class MainVC: UIViewController {
         mainViewModel.movies.bind { [weak self] movie in
             self?.tableview.reloadData()
         }
+        
+        mainViewModel.isMoviesLoading.bind { [weak self] status in
+            if status == false{
+                self?.tableview.isHidden = false
+                self?.activityIndicator.stopAnimating()
+            }else{
+                self?.tableview.isHidden = true
+                self?.activityIndicator.startAnimating()
+            }
+        }
     }
 }
 
@@ -41,13 +54,17 @@ extension MainVC: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "moviesCell") as? MoviewCell else {
-            return UITableViewCell(style: .default, reuseIdentifier: "moviesCell")
-        }
+
+        let cell = tableView.dequeueReusableCell(indexPath: indexPath) as MoviewCell
         
         let movie = mainViewModel.getCellItem(indexPath: indexPath)
         
         cell.movieName.text = movie.title
+        if let url = URL(string: "https://image.tmdb.org/t/p/w440_and_h660_face/\(movie.posterPath)"){
+            cell.movieImage.sd_setImage(with: url) { (image, error, cacheType, url) in
+                
+            }
+        }
         
         return cell
     }

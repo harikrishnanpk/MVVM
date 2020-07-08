@@ -20,7 +20,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="sectionIndexBackgroundColor" red="0.8784313725490196" green="0.88627450980392153" blue="0.89411764705882346" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="moviesCell" rowHeight="184" id="bPd-Ze-gfB" customClass="MoviewCell" customModule="hushPro" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MoviewCell" rowHeight="184" id="bPd-Ze-gfB" customClass="MoviewCell" customModule="hushPro" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="184"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bPd-Ze-gfB" id="Ds1-Lj-TNq">
@@ -73,17 +73,24 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="M75-b6-mf3"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="tap-8G-KNN">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                                <color key="color" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="tap-8G-KNN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Hbs-JX-FW2"/>
                             <constraint firstItem="XBL-SO-U51" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="MDJ-kh-cjt"/>
                             <constraint firstItem="XBL-SO-U51" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="VRL-yP-i5P"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="XBL-SO-U51" secondAttribute="trailing" id="qkL-sH-hCX"/>
+                            <constraint firstItem="tap-8G-KNN" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="sp0-BN-kLu"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="XBL-SO-U51" secondAttribute="bottom" id="xT7-Zm-rFQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="tap-8G-KNN" id="8mz-57-l08"/>
                         <outlet property="tableview" destination="XBL-SO-U51" id="WnY-xw-00I"/>
                     </connections>
                 </viewController>

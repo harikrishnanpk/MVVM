@@ -13,6 +13,7 @@ class MainViewModel {
     var movies: ObjectBinder<[Movie]> = ObjectBinder(value: [])
     
     var pageNumber: Int = 1
+    var isMoviesLoading: ObjectBinder<Bool> = ObjectBinder(value: false)
     
     weak var serviceProvider:ServiceProvider<MovieService>?
     
@@ -23,7 +24,9 @@ class MainViewModel {
 
 extension MainViewModel {
     func loadMovies() {
+        isMoviesLoading.value = true
         serviceProvider?.load(service: .popular(page: pageNumber), decodeType: MoviesList.self, completion: { [weak self] result in
+            self?.isMoviesLoading.value = false
             switch result{
             case .success(let list):
                 self?.movies.value = list.results
