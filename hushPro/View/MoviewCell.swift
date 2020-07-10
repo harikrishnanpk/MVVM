@@ -13,6 +13,15 @@ class MoviewCell: UITableViewCell, Reusable {
     @IBOutlet weak var movieName: UILabel!
     @IBOutlet weak var movieImage: UIImageView!
     
+    var movieViewModel: MovieViewModel!{
+        didSet{
+            movieName.text = movieViewModel.name
+            movieImage.sd_setImage(with: movieViewModel.imageUrl) { (image, error, cacheType, url) in
+                
+            }
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

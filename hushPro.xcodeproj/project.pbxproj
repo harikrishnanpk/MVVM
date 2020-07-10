@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -29,6 +29,7 @@
 		77557F7E24ADC1AE006D091A /* MoviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77557F7D24ADC1AE006D091A /* MoviewCell.swift */; };
 		778100A224B571CE0013D0FA /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778100A124B571CE0013D0FA /* UITableView.swift */; };
 		778100A424B571F80013D0FA /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778100A324B571F80013D0FA /* Reusable.swift */; };
+		778100A624B82E4F0013D0FA /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778100A524B82E4F0013D0FA /* MovieViewModel.swift */; };
 		77D7F49124AEE0CE006D8EEA /* ObjectBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D7F49024AEE0CE006D8EEA /* ObjectBinder.swift */; };
 		77D7F49324AEE117006D8EEA /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D7F49224AEE117006D8EEA /* MainViewModel.swift */; };
 		C3D0D3FA9ED7D864C5673930 /* Pods_hushPro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7D6F38094CEBF1FE667C71 /* Pods_hushPro.framework */; };
@@ -59,6 +60,7 @@
 		77557F7D24ADC1AE006D091A /* MoviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviewCell.swift; sourceTree = "<group>"; };
 		778100A124B571CE0013D0FA /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		778100A324B571F80013D0FA /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
+		778100A524B82E4F0013D0FA /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
 		77D7F49024AEE0CE006D8EEA /* ObjectBinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectBinder.swift; sourceTree = "<group>"; };
 		77D7F49224AEE117006D8EEA /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		8531EBBEC025664DFEEA8E05 /* Pods-hushPro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hushPro.release.xcconfig"; path = "Target Support Files/Pods-hushPro/Pods-hushPro.release.xcconfig"; sourceTree = "<group>"; };
@@ -92,7 +94,6 @@
 				B74AA30FA6A358D412F1A481 /* Pods-hushPro.debug.xcconfig */,
 				8531EBBEC025664DFEEA8E05 /* Pods-hushPro.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -160,6 +161,7 @@
 			children = (
 				77557F6224A47B5B006D091A /* LoginViewModel.swift */,
 				77D7F49224AEE117006D8EEA /* MainViewModel.swift */,
+				778100A524B82E4F0013D0FA /* MovieViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -330,6 +332,7 @@
 				77557F6A24A5BA55006D091A /* AppStoryBoard.swift in Sources */,
 				77D7F49324AEE117006D8EEA /* MainViewModel.swift in Sources */,
 				77D7F49124AEE0CE006D8EEA /* ObjectBinder.swift in Sources */,
+				778100A624B82E4F0013D0FA /* MovieViewModel.swift in Sources */,
 				77557F6024A47B01006D091A /* User.swift in Sources */,
 				77557F6C24A5BBAF006D091A /* UIViewController.swift in Sources */,
 				77557F7324AC302C006D091A /* MoviesList.swift in Sources */,

@@ -19,8 +19,7 @@ class MainVC: UIViewController {
     private lazy var mainViewModel:MainViewModel = {
         return MainViewModel(service: provider)
     }()
-
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -57,14 +56,9 @@ extension MainVC: UITableViewDelegate, UITableViewDataSource{
 
         let cell = tableView.dequeueReusableCell(indexPath: indexPath) as MoviewCell
         
-        let movie = mainViewModel.getCellItem(indexPath: indexPath)
+        let movieViewModel = mainViewModel.getCellItem(indexPath: indexPath)
         
-        cell.movieName.text = movie.title
-        if let url = URL(string: "https://image.tmdb.org/t/p/w440_and_h660_face/\(movie.posterPath)"){
-            cell.movieImage.sd_setImage(with: url) { (image, error, cacheType, url) in
-                
-            }
-        }
+        cell.movieViewModel = movieViewModel
         
         return cell
     }

@@ -44,7 +44,7 @@ extension MainViewModel{
         return movies.value.count
     }
     
-    func getCellItem(indexPath: IndexPath) -> Movie {
-        return movies.value[indexPath.row]
+    func getCellItem(indexPath: IndexPath) -> MovieViewModel {
+        return MovieViewModel(movie: movies.value[indexPath.row])
     }
 }
