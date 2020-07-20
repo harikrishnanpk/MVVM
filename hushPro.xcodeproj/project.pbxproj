@@ -30,6 +30,7 @@
 		778100A224B571CE0013D0FA /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778100A124B571CE0013D0FA /* UITableView.swift */; };
 		778100A424B571F80013D0FA /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778100A324B571F80013D0FA /* Reusable.swift */; };
 		778100A624B82E4F0013D0FA /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778100A524B82E4F0013D0FA /* MovieViewModel.swift */; };
+		778100A824B83EAE0013D0FA /* MainTabbarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778100A724B83EAE0013D0FA /* MainTabbarVC.swift */; };
 		77D7F49124AEE0CE006D8EEA /* ObjectBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D7F49024AEE0CE006D8EEA /* ObjectBinder.swift */; };
 		77D7F49324AEE117006D8EEA /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D7F49224AEE117006D8EEA /* MainViewModel.swift */; };
 		C3D0D3FA9ED7D864C5673930 /* Pods_hushPro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7D6F38094CEBF1FE667C71 /* Pods_hushPro.framework */; };
@@ -61,6 +62,7 @@
 		778100A124B571CE0013D0FA /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		778100A324B571F80013D0FA /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		778100A524B82E4F0013D0FA /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
+		778100A724B83EAE0013D0FA /* MainTabbarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarVC.swift; sourceTree = "<group>"; };
 		77D7F49024AEE0CE006D8EEA /* ObjectBinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectBinder.swift; sourceTree = "<group>"; };
 		77D7F49224AEE117006D8EEA /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		8531EBBEC025664DFEEA8E05 /* Pods-hushPro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hushPro.release.xcconfig"; path = "Target Support Files/Pods-hushPro/Pods-hushPro.release.xcconfig"; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 			children = (
 				77557F4A24A1C19D006D091A /* MainVC.swift */,
 				77557F5D24A463F2006D091A /* LoginVC.swift */,
+				778100A724B83EAE0013D0FA /* MainTabbarVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 				77557F6024A47B01006D091A /* User.swift in Sources */,
 				77557F6C24A5BBAF006D091A /* UIViewController.swift in Sources */,
 				77557F7324AC302C006D091A /* MoviesList.swift in Sources */,
+				778100A824B83EAE0013D0FA /* MainTabbarVC.swift in Sources */,
 				77557F7A24AC6B8B006D091A /* ServiceProvider.swift in Sources */,
 				77557F7524AC31AA006D091A /* Movie.swift in Sources */,
 				778100A424B571F80013D0FA /* Reusable.swift in Sources */,

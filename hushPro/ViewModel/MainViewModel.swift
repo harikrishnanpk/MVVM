@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import UIKit
 
-class MainViewModel {
+class MainViewModel: NSObject {
     
     var movies: ObjectBinder<[Movie]> = ObjectBinder(value: [])
     
@@ -47,4 +48,21 @@ extension MainViewModel{
     func getCellItem(indexPath: IndexPath) -> MovieViewModel {
         return MovieViewModel(movie: movies.value[indexPath.row])
     }
+}
+
+extension MainViewModel: UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+           return numberOfMovies()
+       }
+       
+       func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+           let cell = tableView.dequeueReusableCell(indexPath: indexPath) as MoviewCell
+           
+           let movieViewModel = getCellItem(indexPath: indexPath)
+           
+           cell.movieViewModel = movieViewModel
+           
+           return cell
+       }
 }

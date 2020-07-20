@@ -30,6 +30,8 @@ class MainVC: UIViewController {
     func initViewModel(){
         mainViewModel.loadMovies()
         
+        tableview.dataSource = mainViewModel
+        
         mainViewModel.movies.bind { [weak self] movie in
             self?.tableview.reloadData()
         }
@@ -43,23 +45,5 @@ class MainVC: UIViewController {
                 self?.activityIndicator.startAnimating()
             }
         }
-    }
-}
-
-
-extension MainVC: UITableViewDelegate, UITableViewDataSource{
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return mainViewModel.numberOfMovies()
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-        let cell = tableView.dequeueReusableCell(indexPath: indexPath) as MoviewCell
-        
-        let movieViewModel = mainViewModel.getCellItem(indexPath: indexPath)
-        
-        cell.movieViewModel = movieViewModel
-        
-        return cell
     }
 }

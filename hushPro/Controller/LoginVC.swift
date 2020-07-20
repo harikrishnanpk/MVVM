@@ -13,7 +13,7 @@ class LoginVC: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
-    private let loginViewModel = LoginViewModel()
+    private let loginViewModel = LoginViewModel(user: User())
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +27,8 @@ class LoginVC: UIViewController {
         switch loginViewModel.validate() {
             
         case .Valid:
-            UIApplication.setRootView(MainVC.instantiate(from: .Main), options: .curveLinear, animated: true, duration: 0.5, completion: nil)
+            loginViewModel.saveUserIsLoggedIn()
+            UIApplication.setRootView(MainTabbarVC.instantiate(from: .Main), options: .curveLinear, animated: true, duration: 0.5, completion: nil)
             
         case .InValid(let message):
             showAlert(message: message)

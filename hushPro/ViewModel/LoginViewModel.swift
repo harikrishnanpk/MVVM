@@ -14,7 +14,11 @@ enum LoginValidationState {
 }
 
 class LoginViewModel {    
-    private var user = User()
+    private var user: User
+    
+    init(user: User) {
+        self.user = user
+    }
     
     var email:String {
         return user.email
@@ -47,6 +51,10 @@ extension LoginViewModel{
     
     func updatePassword(password: String) {
         user.password = password
+    }
+    
+    func saveUserIsLoggedIn() {
+        UserDefaults.standard.set(true, forKey: "isLoggedIn")
     }
     
     func validate() -> LoginValidationState {

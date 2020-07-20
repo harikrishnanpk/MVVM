@@ -8,7 +8,12 @@
 
 import Foundation
 
-struct User {
-    var email = ""
-    var password = ""
+struct User: Codable {
+    var email:String
+    var password:String
+    
+    init() {
+        self.email = ""
+        self.password = ""
+    }
 }
