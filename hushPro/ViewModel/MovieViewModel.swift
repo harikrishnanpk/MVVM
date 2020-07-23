@@ -8,23 +8,59 @@
 
 import Foundation
 
+enum MainViewCellTypes {
+    case PopularMovies
+    case TrendingMovies
+}
 
-class MovieViewModel {
-    
-    private var movie: Movie
-    
-    init(movie: Movie) {
-        self.movie = movie
+protocol MovieViewModel {
+    var type: MainViewCellTypes { get }
+    var numberOfRows: Int { get }
+    var sectionTitle: String { get }
+}
+
+extension MovieViewModel{
+    var numberOfRows: Int {
+        return 1
+    }
+}
+
+class PopularMovieViewModelItem: MovieViewModel {
+    var type: MainViewCellTypes {
+        .PopularMovies
     }
     
-    var name:String{
-        return movie.title
+    var sectionTitle: String {
+        return "Popular Movies"
     }
     
-    var imageUrl: URL? {
-        guard let url = URL(string: "https://image.tmdb.org/t/p/w440_and_h660_face/\(movie.posterPath)")  else {
-            return nil
-        }
-        return url
+    var numberOfRows: Int {
+        return movies.count
+    }
+    
+    var movies = [Movie]()
+    
+    init(movies: [Movie]) {
+        self.movies = movies
+    }
+}
+
+class TreandingMovieViewModelItem: MovieViewModel {
+    var type: MainViewCellTypes {
+        .TrendingMovies
+    }
+    
+    var sectionTitle: String {
+        return "Treanding Movies"
+    }
+    
+    var numberOfRows: Int {
+        return movies.count
+    }
+    
+    var movies = [Movie]()
+    
+    init(movies: [Movie]) {
+        self.movies = movies
     }
 }

@@ -32,12 +32,12 @@ class MainVC: UIViewController {
         
         tableview.dataSource = mainViewModel
         
-        mainViewModel.movies.bind { [weak self] movie in
+        mainViewModel.moviesViewModel.bind { [weak self] movie in
             self?.tableview.reloadData()
         }
         
         mainViewModel.isMoviesLoading.bind { [weak self] status in
-            if status == false{
+            if status.isOff{
                 self?.tableview.isHidden = false
                 self?.activityIndicator.stopAnimating()
             }else{

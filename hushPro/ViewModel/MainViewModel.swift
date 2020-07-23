@@ -11,10 +11,10 @@ import UIKit
 
 class MainViewModel: NSObject {
     
-    var movies: ObjectBinder<[Movie]> = ObjectBinder(value: [])
+    var moviesViewModel: ObjectBinder<[MovieViewModel]> = ObjectBinder(value: [])
     
     var pageNumber: Int = 1
-    var isMoviesLoading: ObjectBinder<Bool> = ObjectBinder(value: false)
+    var isMoviesLoading: ObjectBinder<BoolEnum> = ObjectBinder(value: .off)
     
     weak var serviceProvider:ServiceProvider<MovieService>?
     
@@ -25,12 +25,15 @@ class MainViewModel: NSObject {
 
 extension MainViewModel {
     func loadMovies() {
-        isMoviesLoading.value = true
+        isMoviesLoading.value.switchType()
         serviceProvider?.load(service: .popular(page: pageNumber), decodeType: MoviesList.self, completion: { [weak self] result in
-            self?.isMoviesLoading.value = false
+            self?.isMoviesLoading.value.switchType()
             switch result{
             case .success(let list):
-                self?.movies.value = list.results
+                
+                let popularMovies = PopularMovieViewModelItem(movies: list.results);
+                self?.moviesViewModel.value.append(popularMovies)
+            
             case .failure(let error):
                 print(error.localizedDescription)
             case .empty:
@@ -40,29 +43,33 @@ extension MainViewModel {
     }
 }
 
-extension MainViewModel{
-    func numberOfMovies() -> Int {
-        return movies.value.count
+extension MainViewModel: UITableViewDataSource{
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return moviesViewModel.value.count
     }
     
-    func getCellItem(indexPath: IndexPath) -> MovieViewModel {
-        return MovieViewModel(movie: movies.value[indexPath.row])
-    }
-}
-
-extension MainViewModel: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-           return numberOfMovies()
-       }
-       
-       func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-           let cell = tableView.dequeueReusableCell(indexPath: indexPath) as MoviewCell
-           
-           let movieViewModel = getCellItem(indexPath: indexPath)
-           
-           cell.movieViewModel = movieViewModel
-           
-           return cell
-       }
+        return moviesViewModel.value[section].numberOfRows
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let movieViewModel = moviesViewModel.value[indexPath.section]
+        
+        switch movieViewModel.type {
+            
+        case .PopularMovies:
+            let cell = tableView.dequeueReusableCell(indexPath: indexPath) as MoviewCell
+            
+            if let popularMovies = movieViewModel as? PopularMovieViewModelItem{
+                cell.movie = popularMovies.movies[indexPath.row]
+            }
+            
+            return cell
+            
+        case .TrendingMovies:
+            return UITableViewCell()
+        }
+    }
 }

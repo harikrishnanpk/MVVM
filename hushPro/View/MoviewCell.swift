@@ -13,12 +13,12 @@ class MoviewCell: UITableViewCell, Reusable {
     @IBOutlet weak var movieName: UILabel!
     @IBOutlet weak var movieImage: UIImageView!
     
-    var movieViewModel: MovieViewModel!{
+    var movie: Movie!{
         didSet{
-            movieName.text = movieViewModel.name
-            movieImage.sd_setImage(with: movieViewModel.imageUrl) { (image, error, cacheType, url) in
-                
-            }
+            movieName.text = movie.title
+            //            movieImage.sd_setImage(with: movieViewModel.imageUrl) { (image, error, cacheType, url) in
+            //
+            //            }
         }
     }
     
