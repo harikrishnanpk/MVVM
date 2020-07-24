@@ -27,8 +27,10 @@ class LoginVC: UIViewController {
         switch loginViewModel.validate() {
             
         case .Valid:
-            loginViewModel.saveUserIsLoggedIn()
-            UIApplication.setRootView(MainTabbarVC.instantiate(from: .Main), options: .curveLinear, animated: true, duration: 0.5, completion: nil)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                self.loginViewModel.saveUserIsLoggedIn()
+                UIApplication.setRootView(MainTabbarVC.instantiate(from: .Main), options: .curveLinear, animated: true, duration: 0.5, completion: nil)
+            }
             
         case .InValid(let message):
             showAlert(message: message)

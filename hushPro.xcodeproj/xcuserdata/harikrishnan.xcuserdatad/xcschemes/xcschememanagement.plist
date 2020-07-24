@@ -9,6 +9,24 @@
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
+		<key>hushProUITests.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>77557F4224A1C19D006D091A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>77E3229324C9699600691480</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 	</dict>
 </dict>
 </plist>
